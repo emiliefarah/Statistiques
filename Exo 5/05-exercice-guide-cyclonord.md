@@ -132,12 +132,12 @@ Construis, **avec des formules** (pas de TCD, pas de filtre manuel), le tableau 
 Formules à utiliser : `NB.SI.ENS`, `SOMME.SI.ENS`, `MOYENNE.SI.ENS`.
 
 ✅ **Contrôle** : la colonne « Nb commandes » doit totaliser **613** et le CA total
-**1 029 700,50 €**. Si ce n'est pas le cas, une modalité t'échappe.
+**1 029 700,50 €**. Si ce n'est pas le cas, une modalité t'éc**Question A5.** Le VAE représente quel pourcentage des **commandes** ? Quel pourcentage du
+**montant** ? Commente l'écart en une phrase.happe.
 
 ✅ VAE : 97 commandes · 672 822,50 € · 6 936,31 €
 
-**Question A5.** Le VAE représente quel pourcentage des **commandes** ? Quel pourcentage du
-**montant** ? Commente l'écart en une phrase.
+
 
 ✅ 15,8 % des commandes · 65,3 % du montant
 

@@ -1,0 +1,78 @@
+## A1 · Typer les colonnes (20 min)
+
+Dans l'onglet `Position`, recopie ce tableau et **complète les deux dernières colonnes** :
+
+| Colonne | Type (quantitative continue / discrète / qualitative nominale / ordinale / date / identifiant) | Moyenne possible ? (oui/non) |
+|---|---|---|
+| `ID_commande` | identifiant |  non|
+| `Date_commande` |date |non |
+| `Magasin` |qualitative nominale |non |
+| `Departement` |qualitative nominale |non |
+| `Categorie` |qualitative nominale |non |
+| `Produit` |qualitative nominale | non|
+| `Canal` |qualitative nominale |non |
+| `Quantite` |quantitative discrète | oui|
+| `Prix_unitaire_TTC` |quantitative continue |oui |
+| `Remise` |quantitative continue|oui |
+| `Montant_TTC` |quantitative continue | oui|
+| `Statut` |quantitative nominale | non|
+| `Note_client` |qualitative ordinale  | non|
+
+Pour Note_client, justifie ta réponse en une phrase : la moyenne est-elle interdite, ou seulement discutable ?<span style="color: red;">
+Pour la note client la moyenne n'est pas interdite elle est seulement discutable car elle peut caché la réalité des avis.</span>
+
+A2 · Les trois indicateurs de position (30 min)
+
+**Exemple montré en cours**, à reproduire tel quel dans `Position` :
+
+=MOYENNE(T_Ventes[Prix_unitaire_TTC])
+=MEDIANE(T_Ventes[Prix_unitaire_TTC])
+=MODE.SIMPLE(T_Ventes[Prix_unitaire_TTC])
+
+
+**Question A2.** L'écart entre moyenne et médiane est énorme sur `Montant_TTC` et
+`Prix_unitaire_TTC`, presque nul sur `Note_client`. Qu'est-ce que cela t'apprend sur la **forme**
+de chacune de ces trois distributions ?
+<span style="color: red;">
+Comme la moyenne est beaucoup plus élevée que la medianne pour Montant TTC et Prix Unitaire TTC ,cela montre que quelques valeurs trés élevées tirent la moyenne vers le haut.Les distributions sont donc étalées vers la droite .Pour Note client ,la moyenne et la médiane sont presque identiques, donc la distribution est plutôt symétrique </span>
+
+## A3 · Compter avant de commenter (20 min)
+
+excel
+=NB(T_Ventes[Montant_TTC])       → 613
+=NB(T_Ventes[Note_client])       → 560
+=NB.VIDE(T_Ventes[Note_client])  → 53
+
+**Question A3.** Nadia veut écrire dans sa présentation : *« Nos 613 commandes obtiennent une note
+moyenne de 4,1/5. »* Cette phrase est-elle exacte ? Réécris-la correctement.
+
+<span style="color: red;">
+Les 560 commandes ayant recu une note obtiennent une note moyenne de 4,1/5.Les 53 commandes sans note ne sont pas prises en compte dans le calcul ps: Moyenne ignore les cellules vides 
+</span>
+
+A4 · Le périmètre (30 min)
+
+=SOMME(T_Ventes[Montant_TTC])                                      → 1029 700,50
+=SOMME.SI.ENS(T_Ventes[Montant_TTC]; T_Ventes[Statut]; "Livrée")   343877,45
+=NB.SI.ENS(T_Ventes[Statut]; "Livrée")                             → 360
+
+**Question A4.** Calcule la part du montant total qui correspond à des commandes **livrées**
+(une formule, en %). Que dirais-tu à Nadia si elle voulait annoncer « 1 029 700 € de chiffre
+d'affaires 2025 » ?
+<span style="color: red;">
+Je lui dirais de ne pas annoncer 1029 700 comme chiffre d'affaires 2025,car ce montant comprend toutes les commandes ,même celles qui ne sont pas livrées.Les commandes livrées représentent seulement environ 33,4% du montant total. </span>
+
+**Question A5.** Le VAE représente quel pourcentage des **commandes** ? Quel pourcentage du
+**montant** ? Commente l'écart en une phrase.
+<span style="color: red;">
+Le VAE représente 15,82% des commandes et 65,34% du montant on explique cet écart car les montants du total de commande de VAE on un montant plus élevée  
+</span>
+
+A6 · Moyenne simple contre moyenne pondérée (30 min)
+
+Question A6.** Les deux résultats diffèrent. Lequel utiliserais-tu, et pour dire quoi ?
+Attention : la formule pondérée traite les 53 notes vides comme des zéros. En quoi cela fausse-t-il
+le résultat, et comment le corrigerais-tu ?
+<span style="color: red;">
+j'utiliserais la moyenne ponderée car elle permet de mettre un poids a la commande et de mieux quantifié et fiabilisé mais il faudrait ajouter une condition a notre formul oour exclure les vides qui comptent comme des zeros 
+</span>
