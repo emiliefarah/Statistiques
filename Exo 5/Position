@@ -76,3 +76,15 @@ le résultat, et comment le corrigerais-tu ?
 <span style="color: red;">
 j'utiliserais la moyenne ponderée car elle permet de mettre un poids a la commande et de mieux quantifié et fiabilisé mais il faudrait ajouter une condition a notre formul oour exclure les vides qui comptent comme des zeros 
 </span>
+
+A7 · La phrase de restitution (15 min)
+
+Écris, dans une cellule de l'onglet `Position`, **une seule phrase** décrivant le montant typique
+d'une commande Cyclo'Nord. Elle doit contenir un indicateur de position, son périmètre, et ne pas
+induire Nadia en erreur.
+
+<span style="color: red;">
+En 2025 le montant typique d'une commande Cyclo'Nord est de 177 euros selon la médiane,qui est plus représentative que la moyenne car celle-ci est tirée vers le haut par quelques commandes trés élevées.
+
+
+</span>
