@@ -74,7 +74,7 @@ Question A6.** Les deux résultats diffèrent. Lequel utiliserais-tu, et pour di
 Attention : la formule pondérée traite les 53 notes vides comme des zéros. En quoi cela fausse-t-il
 le résultat, et comment le corrigerais-tu ?
 <span style="color: red;">
-j'utiliserais la moyenne ponderée car elle permet de mettre un poids a la commande et de mieux quantifié et fiabilisé mais il faudrait ajouter une condition a notre formul oour exclure les vides qui comptent comme des zeros 
+j'utiliserais la moyenne ponderée car elle permet de mettre un poids a la commande et de mieux quantifié et fiabilisé mais il faudrait ajouter une condition a notre formule pour exclure les vides qui comptent comme des zeros 
 </span>
 
 A7 · La phrase de restitution (15 min)
@@ -84,7 +84,89 @@ d'une commande Cyclo'Nord. Elle doit contenir un indicateur de position, son pé
 induire Nadia en erreur.
 
 <span style="color: red;">
-En 2025 le montant typique d'une commande Cyclo'Nord est de 177 euros selon la médiane,qui est plus représentative que la moyenne car celle-ci est tirée vers le haut par quelques commandes trés élevées.
+En 2025 le montant typique d'une commande Cyclo'Nord est de 177 euros selon la médiane,qui est plus représentative que la moyenne car celle-ci est tirée vers le haut par quelques commandes trés élevées.</span>
 
 
+
+PARTIE B
+**Question B1.** Les deux écarts-types diffèrent de 12 € sur 15 500. Explique en deux lignes
+laquelle des deux fonctions convient ici, et pourquoi la différence est si faible.
+
+<span style="color: red;">
+Les deux écarts types ne différent que de 12 euros sur 15500 euros donc la différence est trés faible .C'est parceque avec 613 données,la correction faite par ecartype.standard par rapport a ecartype.pearso devient presque négligeable.
+Je choisirais donc ecartype.pearson parceque mes 613 lignes représentznt l'ensemble des commandes de 2025.Si ces 613 lignes n'etaient qu'un échantillon j'aurais utilisé 
+ecartype.standard.
 </span>
+
+## B2 · Le résumé à cinq nombres (30 min)
+
+| | Formule | Valeur |
+|---|---|---|
+| Effectif | `=NB(...)` | |
+| Minimum | `=MIN(...)` | |
+| Q1 | `=QUARTILE.INCLURE(...;1)` | |
+| Médiane | `=MEDIANE(...)` | |
+| Q3 | `=QUARTILE.INCLURE(...;3)` | |
+| Maximum | `=MAX(...)` | |
+| IQR | `=Q3-Q1` | |
+
+**Question B2.** Complète la phrase : « La moitié des commandes Cyclo'Nord se situe entre 50.15 € et
+1790.00 €. »
+
+## B3 · Repérer les valeurs atypiques (40 min)
+
+Seuil_bas   = Q1 - 1,5*IQR       → 50.15
+Seuil_haut  = Q3 + 1,5*IQR       → 1790.00
+Nb au-dessus du seuil haut  =NB.SI.ENS(T_Ventes[Montant_TTC]; ">"&Seuil_haut)   → 14
+Nb en dessous du seuil bas  =NB.SI.ENS(T_Ventes[Montant_TTC]; "<"&Seuil_bas)    → 0
+
+**Question B3.** Le seuil bas est négatif. Est-ce un bug ? Que faut-il en conclure sur la forme de
+la distribution ? 
+<span style="color: red;">
+Le seuil bas négatif n'est pas un beug car le calcul est bon mais lorsque ceci arrive il faut simplement trouver le montant le plus bas pour ne pas mettre une valeur négative
+</span>
+
+**Question B4.** Pour chacune des trois commandes de quantité 100, dis si tu la gardes, si tu
+l'écartes ou si tu l'analyses à part — et **justifie**. Aucune des trois réponses n'est
+automatiquement fausse ; c'est la justification qui compte.
+<span style="color: red;">
+Pour ma part je l'analyserais à part car cela représente un quantité de ligne infime et particuliére car il n'y a que 3 commandes de ce montant et on peut voir que leur statut sont tous différents annulée en cours et livrée et leur montant TTC totalement disparate 
+</span>
+
+## B4 · Mesurer l'effet d'une seule ligne (30 min)
+
+
+Recalcule moyenne, médiane, écart-type et IQR **en excluant la seule commande CMD-20250566**
+(filtre ou `MOYENNE.SI.ENS` avec le critère `<>CMD-20250566`), et remplis :
+
+| Mesure | Avec | Sans | Variation en % |
+|---|---|---|---|
+| Moyenne | 1 679,77 € | | |
+| Médiane | 177,00 € | | |
+| Écart-type | 15 504,58 € | | |
+| IQR | 1 739,85 € | | |
+
+## B6 · Le cas Arras (30 min)
+
+Construis, avec des formules, le tableau suivant :
+
+| Magasin | CA **toutes commandes** | CA **livré** | Panier **médian** |
+|---|---|---|---|
+
+| Magasin | CA toutes commandes | CA livré | Panier médian |
+|---|---|---|---|
+| Arras | 442 616,80 € | 29 214,80 € | 90,00 € |
+| Lens | 144 276,20 € | 56 878,50 € | 549,00 € |
+| Amiens | 85 184,10 € | 47 930,05 € | 507,82 € |
+| Lille | 82 683,35 € | 47 768,75 € | 549,00 € |
+| Beauvais | 72 294,50 € | 42 822,10 € | 207,00 € |
+| Dunkerque | 71 939,00 € | 53 362,40 € | 549,00 € |
+| Valenciennes | 71 647,20 € | 36 357,35 € | 92,20 € |
+| Roubaix | 59 059,35 € | 29 543,50 € | 101,05 € |
+
+**Question B7.** Arras est premier sur une colonne et dernier sur une autre. Rédige les **deux
+phrases** que tu mettrais dans un rapport : celle qui décrit le fait, et celle qui l'explique.
+<span style="color: red;">
+Arras est le premier en CA toutes commandes confondus(livrées,non livrées,annulées etc... )Mais lorsque l'on filtre seulement les commandes qui on été livrées on se rend compte que arras descend au classement cela s'explique dans le fait qu'il y ai une partie des commandes non livrées annulées ou en attente ...
+</span>
+
